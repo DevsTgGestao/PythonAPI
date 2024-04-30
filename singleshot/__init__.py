@@ -17,14 +17,15 @@ obj6 = "SubPlanodecontas"
 obj7 = "produto_centro_de_custo"
 
 url_base = os.getenv('DB_UR')
+filtro = "comstraints=[{key"":" "transferencia""," "constraint_type"":" "is_empty}""," "{ key:" "produto_plano_de_contas," "constraint_type: ""not empty}]"
 cont_pg = 0
-url_tg_plano_contas = f"{url_base}/{obj3}?cursor={cont_pg}" 
-url_tg_contas_a_pagar = f"{url_base}/{obj2}?cursor={cont_pg}" 
-url_tg_contas_a_receber = f"{url_base}/{obj1}?cursor={cont_pg}"
-url_movimentacao_financeira = f"{url_base}/{obj4}?cursor={cont_pg}"
-url_Centro_de_custos = f"{url_base}/{obj5}?cursor={cont_pg}"
-url_SubPlanodecontas = f"{url_base}/{obj6}?cursor={cont_pg}"
-url_produto_centro_de_custo = f"{url_base}/{obj7}?cursor={cont_pg}"
+url_tg_plano_contas = f"{url_base}/{obj3}?{filtro}?cursor={cont_pg}" 
+url_tg_contas_a_pagar = f"{url_base}/{obj2}?{filtro}?cursor={cont_pg}" 
+url_tg_contas_a_receber = f"{url_base}/{obj1}?{filtro}?cursor={cont_pg}"
+url_movimentacao_financeira = f"{url_base}/{obj4}?{filtro}?cursor={cont_pg}"
+url_Centro_de_custos = f"{url_base}/{obj5}?{filtro}?cursor={cont_pg}"
+url_SubPlanodecontas = f"{url_base}/{obj6}?{filtro}?cursor={cont_pg}"
+url_produto_centro_de_custo = f"{url_base}/{obj7}?{filtro}?cursor={cont_pg}"
 
 logging.basicConfig(level=logging.INFO, filename="RelatorioLogs.log", format="%(asctime)s - %(levelname)s - %(message)s")
 
